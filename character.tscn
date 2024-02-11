@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/player/IDLE.gd" id="5_suscx"]
 [ext_resource type="Script" path="res://scripts/player/MOVE.gd" id="6_7ln5n"]
 [ext_resource type="Script" path="res://scripts/player/FALL.gd" id="7_tr7m6"]
-[ext_resource type="Script" path="res://DASH.gd" id="9_2akru"]
-[ext_resource type="Script" path="res://WALLJUMP.gd" id="9_7adfi"]
+[ext_resource type="Script" path="res://scripts/player/DASH.gd" id="9_2akru"]
+[ext_resource type="Script" path="res://scripts/player/WALLJUMP.gd" id="9_v0riu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3y3v"]
 radius = 11.0
@@ -56,7 +56,7 @@ script = ExtResource("6_7ln5n")
 script = ExtResource("7_tr7m6")
 
 [node name="WALLJUMP" type="Node" parent="STATES"]
-script = ExtResource("9_7adfi")
+script = ExtResource("9_v0riu")
 
 [node name="CooldownTimer" type="Timer" parent="STATES/WALLJUMP"]
 
