@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://ciwygg6jgoao8"]
+
+[ext_resource type="Script" path="res://Char.gd" id="1_mcf0q"]
+[ext_resource type="SpriteFrames" uid="uid://dcj6shj8wl32l" path="res://sprites/character.aseprite" id="2_r4yyj"]
+[ext_resource type="Texture2D" uid="uid://qffe2bm03ev5" path="res://sprites/Basic_red_dot.png" id="3_turd4"]
+[ext_resource type="Script" path="res://scripts/player/JUMP.gd" id="4_1vel5"]
+[ext_resource type="Script" path="res://scripts/player/STATES.gd" id="4_anfkn"]
+[ext_resource type="Script" path="res://scripts/player/IDLE.gd" id="5_suscx"]
+[ext_resource type="Script" path="res://scripts/player/MOVE.gd" id="6_7ln5n"]
+[ext_resource type="Script" path="res://scripts/player/FALL.gd" id="7_tr7m6"]
+[ext_resource type="Script" path="res://DASH.gd" id="9_2akru"]
+[ext_resource type="Script" path="res://WALLJUMP.gd" id="9_7adfi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3y3v"]
+radius = 11.0
+height = 56.0
+
+[node name="Char" type="CharacterBody2D"]
+script = ExtResource("1_mcf0q")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_r4yyj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_w3y3v")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="WallDetectRight" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(20, 0)
+
+[node name="WallDetectLeft" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-20, 0)
+
+[node name="dot" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_turd4")
+
+[node name="STATES" type="Node" parent="."]
+script = ExtResource("4_anfkn")
+
+[node name="JUMP" type="Node" parent="STATES"]
+script = ExtResource("4_1vel5")
+
+[node name="IDLE" type="Node" parent="STATES"]
+script = ExtResource("5_suscx")
+
+[node name="MOVE" type="Node" parent="STATES"]
+script = ExtResource("6_7ln5n")
+
+[node name="FALL" type="Node" parent="STATES"]
+script = ExtResource("7_tr7m6")
+
+[node name="WALLJUMP" type="Node" parent="STATES"]
+script = ExtResource("9_7adfi")
+
+[node name="CooldownTimer" type="Timer" parent="STATES/WALLJUMP"]
+
+[node name="DASH" type="Node" parent="STATES"]
+script = ExtResource("9_2akru")
+
+[node name="DashTimer" type="Timer" parent="STATES/DASH"]
+one_shot = true
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = 34.0
+offset_top = -12.0
+offset_right = 74.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "state"
+
+[node name="VelocityLabel" type="Label" parent="."]
+offset_left = -175.0
+offset_top = -11.0
+offset_right = -35.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "velocity"
+horizontal_alignment = 2
+
+[node name="StaticLabels" type="Node" parent="."]
+
+[node name="StateLabel" type="Label" parent="StaticLabels"]
+offset_left = 149.0
+offset_top = 72.0
+offset_right = 189.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "state"
+
+[node name="VelocityLabel" type="Label" parent="StaticLabels"]
+offset_left = 149.0
+offset_top = 92.0
+offset_right = 289.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "velocity"
+
+[connection signal="timeout" from="STATES/DASH/DashTimer" to="STATES/DASH" method="_on_dash_timer_timeout"]
