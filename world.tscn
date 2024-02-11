@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhnv73ol76hu4"]
+[gd_scene load_steps=23 format=3 uid="uid://bhnv73ol76hu4"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_7j27m"]
 [ext_resource type="Texture2D" uid="uid://kcuqsa5qwufm" path="res://sprites/baroker.jpg" id="2_1ijtc"]
@@ -10,17 +10,47 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wig7r"]
 size = Vector2(1153, 645)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfeuq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gbtp"]
 size = Vector2(752, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfeuq"]
+size = Vector2(704, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b762"]
+size = Vector2(64, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5krd"]
+size = Vector2(64, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbwf0"]
+size = Vector2(64, 296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o1y"]
 size = Vector2(1536, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mvh5"]
-size = Vector2(64, 832)
+size = Vector2(56, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8og"]
+size = Vector2(64, 592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cr0y"]
+size = Vector2(31.9956, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63e1l"]
 size = Vector2(381, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q4k"]
+size = Vector2(382.25, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq45m"]
+size = Vector2(190.25, 73.2499)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpb03"]
+size = Vector2(56, 57.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfyre"]
+size = Vector2(64, 168.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqqid"]
 size = Vector2(1152.5, 645)
@@ -46,13 +76,91 @@ offset_bottom = 864.0
 position = Vector2(0, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D2"]
-position = Vector2(392, 224)
-shape = SubResource("RectangleShape2D_cfeuq")
+position = Vector2(392, 192)
+shape = SubResource("RectangleShape2D_1gbtp")
 
 [node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D2"]
-position = Vector2(-1112, 0)
+position = Vector2(-1112, -32)
 scale = Vector2(1.95833, 1)
 color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="areas/start/Collisions"]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D9"]
+position = Vector2(608, 24)
+shape = SubResource("RectangleShape2D_cfeuq")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D9"]
+position = Vector2(-799.995, -200)
+scale = Vector2(1.83333, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D5"]
+position = Vector2(992, 284)
+shape = SubResource("RectangleShape2D_8b762")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D5"]
+position = Vector2(864, -136)
+scale = Vector2(0.166659, 1.875)
+color = Color(0, 0, 0.4, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D10"]
+position = Vector2(992, -132)
+shape = SubResource("RectangleShape2D_8b762")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D10"]
+position = Vector2(864, -552)
+scale = Vector2(0.166659, 1.875)
+color = Color(0, 0, 0.4, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="areas/start/Collisions"]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D6"]
+position = Vector2(992, 395)
+shape = SubResource("RectangleShape2D_g5krd")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D6"]
+position = Vector2(864, 80.0008)
+scale = Vector2(0.166659, 1.375)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="areas/start/Collisions"]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D7"]
+position = Vector2(992, 76)
+shape = SubResource("RectangleShape2D_sbwf0")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D7"]
+position = Vector2(864, -960)
+scale = Vector2(0.166659, 4.625)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D11"]
+position = Vector2(352.004, -448)
+shape = SubResource("RectangleShape2D_sbwf0")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D11"]
+position = Vector2(224.004, -1480)
+scale = Vector2(0.166659, 4.625)
+color = Color(0, 0, 0.4, 1)
 polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="areas/start/Collisions"]
@@ -66,16 +174,65 @@ position = Vector2(-576, 640)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(576, 192, 2112, 192, 2112, 256, 576, 256)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+[node name="StaticBody2D12" type="StaticBody2D" parent="areas/start/Collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D12"]
+position = Vector2(784, -32)
+shape = SubResource("RectangleShape2D_w6o1y")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D12"]
+position = Vector2(-560, -256)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(576, 192, 2112, 192, 2112, 256, 576, 256)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="areas/start/Collisions"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D4"]
-position = Vector2(-16, 416)
+position = Vector2(-16, 712)
 shape = SubResource("RectangleShape2D_7mvh5")
 
 [node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D4"]
-position = Vector2(-576, 640)
+position = Vector2(-576, 776.615)
+scale = Vector2(1, 0.288462)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(592, 192, 592, -640, 528, -640, 528, 192)
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="areas/start/Collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D13"]
+position = Vector2(220, 336.001)
+shape = SubResource("RectangleShape2D_7mvh5")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D13"]
+position = Vector2(-336, 400.616)
+scale = Vector2(1, 0.288462)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(592, 192, 592, -640, 528, -640, 528, 192)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D8"]
+position = Vector2(-16, 296)
+shape = SubResource("RectangleShape2D_ix8og")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D8"]
+position = Vector2(-576, 456)
+scale = Vector2(1, 0.710799)
+color = Color(0, 0, 0.4, 1)
+polygon = PackedVector2Array(592, 192, 592, -640, 528, -640, 528, 192)
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="areas/start/Collisions" groups=["walljumpable"]]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/Collisions/StaticBody2D14"]
+position = Vector2(240.002, -96)
+shape = SubResource("RectangleShape2D_2cr0y")
+
+[node name="Polygon2D" type="Polygon2D" parent="areas/start/Collisions/StaticBody2D14"]
+position = Vector2(176, -712)
+scale = Vector2(0.0833334, 2.75)
+color = Color(0, 0, 0.4, 1)
+polygon = PackedVector2Array(576, 192, 960, 192, 960, 256, 576, 256)
 
 [node name="DeathZones" type="Node2D" parent="areas/start"]
 script = ExtResource("2_1lf14")
@@ -83,16 +240,115 @@ script = ExtResource("2_1lf14")
 [node name="Area2D" type="Area2D" parent="areas/start/DeathZones"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D"]
-position = Vector2(513.5, 848)
+position = Vector2(576, 392)
 shape = SubResource("RectangleShape2D_63e1l")
 
 [node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D"]
-position = Vector2(511.75, 826.75)
+position = Vector2(576, 384)
 scale = Vector2(1.99223, 0.285441)
+texture = ExtResource("2_1ijtc")
+
+[node name="Area2D4" type="Area2D" parent="areas/start/DeathZones"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D4"]
+position = Vector2(1216.88, 380.75)
+shape = SubResource("RectangleShape2D_m6q4k")
+
+[node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D4"]
+position = Vector2(1216.25, 384)
+scale = Vector2(1.99223, 0.285441)
+texture = ExtResource("2_1ijtc")
+
+[node name="Area2D2" type="Area2D" parent="areas/start/DeathZones"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D2"]
+position = Vector2(416.875, 843.375)
+shape = SubResource("RectangleShape2D_hq45m")
+
+[node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D2"]
+position = Vector2(416, 845.25)
+scale = Vector2(0.994819, 0.285441)
+texture = ExtResource("2_1ijtc")
+
+[node name="Area2D6" type="Area2D" parent="areas/start/DeathZones"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D6"]
+position = Vector2(396, 563.375)
+shape = SubResource("RectangleShape2D_tpb03")
+
+[node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D6"]
+position = Vector2(396, 564)
+scale = Vector2(0.290156, 0.214559)
+texture = ExtResource("2_1ijtc")
+
+[node name="Area2D3" type="Area2D" parent="areas/start/DeathZones"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D3"]
+position = Vector2(608, 675.688)
+shape = SubResource("RectangleShape2D_bfyre")
+
+[node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D3"]
+position = Vector2(608, 676)
+scale = Vector2(0.331606, 0.643678)
+texture = ExtResource("2_1ijtc")
+
+[node name="Area2D5" type="Area2D" parent="areas/start/DeathZones"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D5"]
+position = Vector2(1216, 3.68746)
+shape = SubResource("RectangleShape2D_bfyre")
+
+[node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D5"]
+position = Vector2(1216, 3.99996)
+scale = Vector2(0.331606, 0.643678)
 texture = ExtResource("2_1ijtc")
 
 [node name="spawnpoint" type="Node2D" parent="areas/start/DeathZones"]
 position = Vector2(128, 800)
+
+[node name="Label" type="Label" parent="areas/start/DeathZones"]
+offset_left = 392.0
+offset_top = 256.0
+offset_right = 760.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "OBAMA SAY WHAT IT DO"
+
+[node name="Label2" type="Label" parent="areas/start/DeathZones"]
+offset_left = 432.0
+offset_top = 280.0
+offset_right = 800.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "OBAMA SAY WHAT IT DO"
+
+[node name="Label3" type="Label" parent="areas/start/DeathZones"]
+offset_left = 496.0
+offset_top = 296.0
+offset_right = 864.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "OBAMA SAY WHAT IT DO"
+
+[node name="Label4" type="Label" parent="areas/start/DeathZones"]
+offset_left = 544.0
+offset_top = 312.0
+offset_right = 912.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "OBAMA SAY WHAT IT DO"
 
 [node name="area2" type="Area2D" parent="areas"]
 position = Vector2(1000, 0)
@@ -125,11 +381,31 @@ anchor_mode = 0
 zoom = Vector2(0.75, 0.75)
 
 [node name="NotWallJumpable" type="Sprite2D" parent="."]
-position = Vector2(568, 336)
+position = Vector2(1112, 560)
+rotation = -1.24093
 scale = Vector2(2.125, 2.125)
 texture = ExtResource("5_f7c8v")
 
 [node name="EnterToDash" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(520, 728)
 scale = Vector2(2.625, 2.625)
 texture = ExtResource("6_r57mh")
+
+[node name="Label" type="Label" parent="EnterToDash"]
+offset_left = 73.1429
+offset_top = -18.2857
+offset_right = 199.143
+offset_bottom = 30.7143
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "pls dont dash rn
+test other stuff"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1408.0
+offset_top = 688.0
+offset_right = 1728.0
+offset_bottom = 711.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "you win"

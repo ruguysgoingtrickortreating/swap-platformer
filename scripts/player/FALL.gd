@@ -9,5 +9,8 @@ func update(delta):
 	if player.check_wall_adjacent():
 		return states.WALLJUMP
 	if player.is_on_floor():
-		return states.IDLE
+		if player.jump:
+			return states.JUMP
+		else:
+			return states.IDLE
 	return null

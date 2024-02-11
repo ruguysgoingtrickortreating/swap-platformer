@@ -12,7 +12,6 @@ func update(delta):
 	return null
 func player_movement():
 	if player.input_direction:
-		#player.velocity.x = lerp (player.velocity.x, player.input_direction.x * player.SPEED, 0.3)
 		player.velocity.x = move_toward(player.velocity.x, player.input_direction.x * player.SPEED, 120)
 		
 		if player.input_direction.x > 0:
@@ -24,13 +23,15 @@ func player_movement():
 
 func player_movement_air():
 	if player.input_direction:
-		#player.velocity.x = lerp (player.velocity.x, player.input_direction.x * player.SPEED, 0.3)
 		player.velocity.x = move_toward(player.velocity.x, player.input_direction.x * player.SPEED, 100)
 		
 		if player.input_direction.x > 0:
 			player.last_direction = Vector2.RIGHT
 		elif player.input_direction.x < 0:
 			player.last_direction = Vector2.LEFT
+		
+		if player.input_direction.y > 0:
+			player.velocity.y += 50
 	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, 50)
+		player.velocity.x = move_toward(player.velocity.x, 0, 20)
 	

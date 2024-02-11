@@ -8,7 +8,7 @@ func update(delta):
 		return states.DASH
 	if player.jump:
 		return states.JUMP
-	if player.check_wall_adjacent():
+	if not player.is_on_floor() and player.check_wall_adjacent():
 		return states.WALLJUMP
 	if not player.velocity.x:
 		return states.IDLE

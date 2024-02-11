@@ -16,7 +16,7 @@ var last_direction:Vector2
 var input_direction = Vector2.RIGHT
 var jump
 var dash
-var can_dash = true
+var can_dash = false
 var walljump_cooldown
 
 # STATES

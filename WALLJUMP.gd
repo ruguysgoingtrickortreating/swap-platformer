@@ -9,8 +9,8 @@ func update(delta):
 	wall_slide_movement(delta)
 	if player.jump:
 		return states.JUMP
-	#if player.is_on_floor():
-		#return states.IDLE
+	if player.is_on_floor():
+		return states.IDLE
 	if not player.check_wall_adjacent():
 		print("JOE BIDEN JOE BIDEN")
 		return states.IDLE

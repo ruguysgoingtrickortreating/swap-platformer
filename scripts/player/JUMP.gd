@@ -13,6 +13,6 @@ func update(delta):
 	return null
 func enter_state():
 	if player.last_state == states.WALLJUMP:
-		player.velocity = Vector2(-states.WALLJUMP.direction.x * 1250, -800)
+		player.velocity = Vector2(-states.WALLJUMP.direction.x * 800, -800)
 	else:
 		player.velocity.y = player.MAX_JUMP_VELOCITY
