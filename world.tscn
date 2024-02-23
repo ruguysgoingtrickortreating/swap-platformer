@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhnv73ol76hu4"]
+[gd_scene load_steps=24 format=3 uid="uid://bhnv73ol76hu4"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_7j27m"]
 [ext_resource type="Texture2D" uid="uid://kcuqsa5qwufm" path="res://sprites/baroker.jpg" id="2_1ijtc"]
@@ -51,6 +51,9 @@ size = Vector2(56, 57.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfyre"]
 size = Vector2(64, 168.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rfkt"]
+size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqqid"]
 size = Vector2(1152.5, 645)
@@ -295,12 +298,12 @@ texture = ExtResource("2_1ijtc")
 [node name="Area2D5" type="Area2D" parent="areas/start/DeathZones"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/start/DeathZones/Area2D5"]
-position = Vector2(1216, 3.68746)
-shape = SubResource("RectangleShape2D_bfyre")
+position = Vector2(992, 200)
+shape = SubResource("RectangleShape2D_1rfkt")
 
 [node name="Baroker" type="Sprite2D" parent="areas/start/DeathZones/Area2D5"]
-position = Vector2(1216, 3.99996)
-scale = Vector2(0.331606, 0.643678)
+position = Vector2(992, 200)
+scale = Vector2(0.165803, 0.0613027)
 texture = ExtResource("2_1ijtc")
 
 [node name="spawnpoint" type="Node2D" parent="areas/start/DeathZones"]
@@ -317,33 +320,36 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
 text = "OBAMA SAY WHAT IT DO"
 
-[node name="Label2" type="Label" parent="areas/start/DeathZones"]
-offset_left = 432.0
-offset_top = 280.0
-offset_right = 800.0
-offset_bottom = 324.0
+[node name="Label2" type="Label" parent="areas/start/DeathZones/Label"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 408.0
+offset_bottom = 68.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "OBAMA SAY WHAT IT DO"
 
-[node name="Label3" type="Label" parent="areas/start/DeathZones"]
-offset_left = 496.0
-offset_top = 296.0
-offset_right = 864.0
-offset_bottom = 340.0
+[node name="Label3" type="Label" parent="areas/start/DeathZones/Label/Label2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 432.0
+offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 17
 text = "OBAMA SAY WHAT IT DO"
 
-[node name="Label4" type="Label" parent="areas/start/DeathZones"]
-offset_left = 544.0
-offset_top = 312.0
-offset_right = 912.0
-offset_bottom = 356.0
+[node name="Label4" type="Label" parent="areas/start/DeathZones/Label/Label2/Label3"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

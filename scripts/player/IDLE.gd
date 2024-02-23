@@ -2,6 +2,7 @@ extends State
 
 
 func update(delta):
+	sprite.flip_h = player.last_direction.x < 0
 	player.gravity(delta)
 	if player.dash:
 		return states.DASH
@@ -13,3 +14,9 @@ func update(delta):
 		return states.FALL
 	return null
 
+func enter_state():
+	sprite.play("idle")
+	if player.bufferjump:
+		player.bufferjump = false
+		player.bufferjump_timer.stop()
+		return states.JUMP

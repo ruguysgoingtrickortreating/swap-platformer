@@ -2,6 +2,7 @@ extends State
 
 
 func update(delta):
+	sprite.flip_h = player.velocity.x < 0
 	player.gravity(delta)
 	player_movement()
 	if player.dash:
@@ -15,4 +16,10 @@ func update(delta):
 	if player.velocity.y > 0:
 		return states.FALL
 	return null
-	
+
+func enter_state():
+	sprite.play("run")
+	if player.bufferjump:
+		player.bufferjump = false
+		player.bufferjump_timer.stop()
+		return states.JUMP

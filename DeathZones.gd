@@ -9,4 +9,3 @@ func _ready():
 
 func die(charbody):
 	owner.get_node("Char").position = $spawnpoint.position
-	print("DIE")

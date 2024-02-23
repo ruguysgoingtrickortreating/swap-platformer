@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://scripts/player/IDLE.gd" id="5_suscx"]
 [ext_resource type="Script" path="res://scripts/player/MOVE.gd" id="6_7ln5n"]
 [ext_resource type="Script" path="res://scripts/player/FALL.gd" id="7_tr7m6"]
-[ext_resource type="Script" path="res://scripts/player/DASH.gd" id="9_2akru"]
 [ext_resource type="Script" path="res://scripts/player/WALLJUMP.gd" id="9_v0riu"]
+[ext_resource type="Script" path="res://scripts/player/DASH.gd" id="10_cxte3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3y3v"]
 radius = 11.0
@@ -40,6 +40,8 @@ visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_turd4")
 
+[node name="BufferJumpTimer" type="Timer" parent="."]
+
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("4_anfkn")
 
@@ -55,13 +57,15 @@ script = ExtResource("6_7ln5n")
 [node name="FALL" type="Node" parent="STATES"]
 script = ExtResource("7_tr7m6")
 
+[node name="CoyoteTimer" type="Timer" parent="STATES/FALL"]
+
 [node name="WALLJUMP" type="Node" parent="STATES"]
 script = ExtResource("9_v0riu")
 
 [node name="CooldownTimer" type="Timer" parent="STATES/WALLJUMP"]
 
 [node name="DASH" type="Node" parent="STATES"]
-script = ExtResource("9_2akru")
+script = ExtResource("10_cxte3")
 
 [node name="DashTimer" type="Timer" parent="STATES/DASH"]
 one_shot = true
@@ -99,6 +103,14 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "state"
 
+[node name="LastStateLabel" type="Label" parent="StaticLabels"]
+offset_left = 149.0
+offset_top = 54.0
+offset_right = 189.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "state"
+
 [node name="VelocityLabel" type="Label" parent="StaticLabels"]
 offset_left = 149.0
 offset_top = 92.0
@@ -109,4 +121,24 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "velocity"
 
+[node name="CoyJumpLabel" type="Label" parent="StaticLabels"]
+offset_left = 149.0
+offset_top = 117.0
+offset_right = 225.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "coyotejump: "
+
+[node name="BufferJumpLabel" type="Label" parent="StaticLabels"]
+offset_left = 149.0
+offset_top = 136.0
+offset_right = 225.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "bufferjump: "
+
+[connection signal="timeout" from="BufferJumpTimer" to="." method="_on_buffer_jump_timer_timeout"]
+[connection signal="timeout" from="STATES/FALL/CoyoteTimer" to="STATES/FALL" method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="STATES/DASH/DashTimer" to="STATES/DASH" method="_on_dash_timer_timeout"]
